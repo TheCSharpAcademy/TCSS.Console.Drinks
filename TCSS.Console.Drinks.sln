@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCSS.Console.Drinks", "TCSS.Console.Drinks.csproj", "{885F8C4D-C20F-41BC-876B-F364499DF8AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{885F8C4D-C20F-41BC-876B-F364499DF8AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{885F8C4D-C20F-41BC-876B-F364499DF8AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{885F8C4D-C20F-41BC-876B-F364499DF8AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{885F8C4D-C20F-41BC-876B-F364499DF8AB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0502C552-EF9B-474F-B50C-C7CBA3A20C9B}
+	EndGlobalSection
+EndGlobal
