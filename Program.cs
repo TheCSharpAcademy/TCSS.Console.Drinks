@@ -6,5 +6,5 @@ while (true)
     AnsiConsole.Clear();
     AnsiConsole.Write(new FigletText("Drinks Menu"));
     UserInput userInput = new();
-    await userInput.GetCategoriesInput();
+    userInput.GetCategoriesInput();
 }

@@ -5,15 +5,14 @@ namespace TCSS.Console.Drinks;
 
 internal class UserInput
 {
-    internal async Task GetCategoriesInput()
+    internal void GetCategoriesInput()
     {
-        var availableCategories = await DrinksService.GetCategories();
+        var drinksService = new DrinksService();
+        var availableCategories = drinksService.GetCategories();
 
-        var categorySelector = new SelectionPrompt<Category>();
+        var categorySelector = new SelectionPrompt<string>();
         categorySelector.Title("Select the category you wish to view");
         categorySelector.AddChoices(availableCategories);
-        categorySelector.UseConverter(category => category.strCategory);
-        categorySelector.PageSize(25);
 
         var categorySelected = AnsiConsole.Prompt(categorySelector);
     }
