@@ -1,5 +1,4 @@
 ﻿using Spectre.Console;
-using TCSS.Console.Drinks.Models;
 
 namespace TCSS.Console.Drinks;
 
