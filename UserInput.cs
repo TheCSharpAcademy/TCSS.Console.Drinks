@@ -16,7 +16,7 @@ internal class UserInput
 
         var categorySelected = AnsiConsole.Prompt(categorySelector);
 
-        GetDrinksInput(categorySelected);
+        await GetDrinksInput(categorySelected);
     }
 
     private async Task GetDrinksInput(string category)
