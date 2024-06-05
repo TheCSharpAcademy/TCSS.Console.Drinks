@@ -1,4 +1,5 @@
 ﻿using Spectre.Console;
+using TCss.Console.Drinks.Helpers;
 using TCSS.Console.Drinks.Models;
 
 namespace TCSS.Console.Drinks;
@@ -30,7 +31,27 @@ internal class UserInput
         drinkSelector.UseConverter(drink => drink.strDrink);
         drinkSelector.PageSize(25);
 
-        AnsiConsole.Prompt(drinkSelector);
-        System.Console.ReadLine();
+        var drink = AnsiConsole.Prompt(drinkSelector);
+
+        await ShowDrink(drink);
+
+    }
+
+    private async Task ShowDrink(Drink drink)
+    {
+        var drinksService = new DrinksService();
+        var drinkSelected = await drinksService.GetDrink(drink);
+
+        Table details = TableVisualisation.ShowTable(drinkSelected);
+
+        AnsiConsole.Write(details);
+
+        ExitProgram();
+    }
+
+    private static void ExitProgram()
+    {
+        if (!AnsiConsole.Confirm("Press enter to continue"))
+            Environment.Exit(1);
     }
 }

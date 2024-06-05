@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json;
+using System.Net;
 using System.Net.Http.Headers;
+using System.Text.RegularExpressions;
 using TCSS.Console.Drinks.Models;
 
 namespace TCSS.Console.Drinks;
@@ -38,5 +40,26 @@ internal class DrinksService
         var serialize = JsonConvert.DeserializeObject<Models.Drinks>(rawResponse);
 
         return serialize.DrinksList;
+    }
+
+    public async Task<DrinkDetail> GetDrink(Drink drink)
+    {
+        var httpClient = new HttpClient();
+        httpClient.BaseAddress = new Uri("http://www.thecocktaildb.com/api/json/v1/1/");
+        httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+        HttpResponseMessage response = await httpClient.GetAsync($"lookup.php?i={drink.idDrink}");
+
+        if (!response.IsSuccessStatusCode) 
+            return new DrinkDetail();
+
+        string rawResponse = await response.Content.ReadAsStringAsync();
+        var serialize = JsonConvert.DeserializeObject<DrinkDetailObject>(rawResponse);
+
+        var returnedList = serialize.DrinkDetailList;
+
+        var drinkDetail = returnedList[0];
+
+        return drinkDetail;
     }
 }
